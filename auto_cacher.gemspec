@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Automatically caches calculated fields in Rails models"
   spec.description = "A Rails gem that automatically caches calculated fields in models using database triggers"
-  spec.homepage = "https://github.com/corporatetools/auto_cacher"
+  spec.homepage = "https://github.com/dandailey/auto_cacher"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
 
@@ -25,7 +25,9 @@ Gem::Specification.new do |spec|
   # Runtime dependencies
   spec.add_dependency "activerecord", ">= 7.0.0"
   spec.add_dependency "activesupport", ">= 7.0.0"
-  spec.add_dependency "hall_monitor", ">= 0.1.0"
+  # Not published to RubyGems, where an unrelated gem has this name. This requirement excludes
+  # that gem's versions, so a host app that omits the git source fails at bundle time.
+  spec.add_dependency "hall_monitor", "~> 0.7"
 
   # Development dependencies
   spec.add_development_dependency "rspec", "~> 3.12"

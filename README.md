@@ -1,13 +1,14 @@
 # AutoCacher
 
-A powerful caching system for Rails applications that automatically caches calculated fields and manages dedicated cache models. Built on top of [HallMonitor](https://github.com/corporatetools/hall_monitor) for efficient database change detection.
+A powerful caching system for Rails applications that automatically caches calculated fields and manages dedicated cache models. Built on top of [HallMonitor](https://github.com/dandailey/hall_monitor) for efficient database change detection.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add these lines to your application's Gemfile:
 
 ```ruby
-gem "auto_cacher", git: "https://github.com/corporatetools/auto_cacher.git"
+gem "hall_monitor", git: "https://github.com/dandailey/hall_monitor.git"
+gem "auto_cacher", git: "https://github.com/dandailey/auto_cacher.git"
 ```
 
 And then execute:
@@ -135,7 +136,7 @@ AutoCacher operates by:
 
 ### HallMonitor Dependency
 
-AutoCacher depends on [HallMonitor](https://github.com/corporatetools/hall_monitor) for field tracking via HallMonitor::FieldMap and HallMonitor::DataChange.
+AutoCacher depends on [HallMonitor](https://github.com/dandailey/hall_monitor) for field tracking via HallMonitor::FieldMap and HallMonitor::DataChange.
 
 ### Step 1: Ensure AutoCacher is Present
 
@@ -659,7 +660,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/corporatetools/auto_cacher.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dandailey/auto_cacher.
 
 ## License
 

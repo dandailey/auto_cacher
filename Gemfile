@@ -7,6 +7,17 @@ gemspec
 
 gem "rake", "~> 13.0"
 
-gem "standard", "~> 1.3"
+# Development dependencies
+group :development, :test do
+  gem "byebug", "~> 11.1"
+  gem "simplecov", "~> 0.22"
+  gem "sqlite3", ">= 1.6"
+end
 
-gem "hall_monitor", path: "../hall_monitor"
+# HallMonitor comes from GitHub: an unrelated gem with the same name exists on RubyGems.
+# Set HALL_MONITOR_PATH to develop against a local checkout.
+if ENV["HALL_MONITOR_PATH"].to_s.empty?
+  gem "hall_monitor", git: "https://github.com/dandailey/hall_monitor.git"
+else
+  gem "hall_monitor", path: ENV["HALL_MONITOR_PATH"]
+end
