@@ -44,7 +44,10 @@ module AutoCacher
         config[:sync] = options[:sync] if options.key?(:sync)
         config[:watching] = ::HallMonitor::FieldMap.build(options[:watching]) if options.key?(:watching)
         config[:calculation] = options[:calculation]&.to_proc if options.key?(:calculation)
-        config[:records_to_update] = options[:records_to_update]&.to_proc if options.key?(:records_to_update)
+        if options.key?(:records_to_update)
+          records_to_update = options[:records_to_update]
+          config[:records_to_update] = records_to_update.is_a?(Symbol) ? records_to_update : records_to_update&.to_proc
+        end
         config[:on_update] = options[:on_update]&.to_proc if options.key?(:on_update)
         config[:operations] = options[:operations] ? Array(options[:operations]).map(&:to_sym) : nil if options.key?(:operations)
         config[:context] = options[:context] if options.key?(:context)

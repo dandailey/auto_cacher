@@ -35,7 +35,7 @@ module AutoCacher
         end
         self.auto_cacher_dedicated_association = association_name
         has_one association_name, *args, **kwargs
-        auto_cacher_list << association_name
+        self.auto_cacher_list += [association_name]
 
         class_eval do
           reflection = reflect_on_association(association_name)
@@ -62,7 +62,7 @@ module AutoCacher
                   sleep(backoff_time * retry_count) unless e.is_a?(ActiveRecord::RecordNotUnique)
                   retry
                 else
-                  Rails.logger.error("Failed to find or create #{association_name} after #{max_retries} attempts: #{e.message}")
+                  ActiveRecord::Base.logger&.error("Failed to find or create #{association_name} after #{max_retries} attempts: #{e.message}")
                   raise e
                 end
               end

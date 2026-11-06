@@ -17,18 +17,6 @@ module AutoCacherTest
 end
 
 RSpec.describe AutoCacher do
-  # TODO: Split these tests into unit and integration tests
-  # Unit tests should not require database access and should test:
-  # - Configuration validation
-  # - Cacher registration
-  # - Callback registration and execution
-  # - Change queue building logic
-  #
-  # Integration tests should be in a separate file and test:
-  # - Actual database operations
-  # - Real record updates
-  # - End-to-end caching functionality
-
   module TestTable
     class TestCacher < AutoCacher::Cacher
       configuration(
@@ -116,19 +104,4 @@ RSpec.describe AutoCacher do
       expect(AutoCacher.cachers_for_table("other_table")).to be_empty
     end
   end
-
-  # Skip database-dependent tests for now
-  describe "database operations", skip: "Database tests need to be moved to integration tests" do
-    describe ".build_changes_queue" do
-      it "builds the changes queue with the correct differences"
-    end
-
-    describe ".recalculate" do
-      it "updates the record's cached_value based on the calculation"
-      it "triggers callbacks when changes occur"
-      it "leaves records unchanged if the calculation matches the current value"
-    end
-  end
 end
-
-# rubocop:enable Lint/ConstantDefinitionInBlock 

@@ -7,9 +7,11 @@ A powerful caching system for Rails applications that automatically caches calcu
 Add these lines to your application's Gemfile:
 
 ```ruby
-gem "hall_monitor", git: "https://github.com/dandailey/hall_monitor.git"
-gem "auto_cacher", git: "https://github.com/dandailey/auto_cacher.git"
+gem "hall_monitor", git: "https://github.com/dandailey/hall_monitor.git", tag: "v0.7.0"
+gem "auto_cacher", git: "https://github.com/dandailey/auto_cacher.git", tag: "v0.2.0"
 ```
+
+Both lines are required, because `hall_monitor` is installed from GitHub. An unrelated gem with that name exists on RubyGems. Without the `hall_monitor` line, `bundle install` stops with an error.
 
 And then execute:
 

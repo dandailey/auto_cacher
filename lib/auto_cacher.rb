@@ -132,7 +132,7 @@ module AutoCacher
     end
 
     def dedicated_auto_cacher_klass_for(record_or_klass)
-      klass = (record_or_klass < ActiveRecord::Base) ? record_or_klass : record_or_klass.class
+      klass = record_or_klass.is_a?(Class) ? record_or_klass : record_or_klass.class
       dedicated_auto_cacher_models.find { |model| model.auto_cacher_dedicated_to_klass == klass }
     end
 

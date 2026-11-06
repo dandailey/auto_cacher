@@ -4,7 +4,7 @@ require_relative "lib/auto_cacher/version"
 
 Gem::Specification.new do |spec|
   spec.name = "auto_cacher"
-  spec.version = "0.1.0"
+  spec.version = AutoCacher::VERSION
   spec.authors = ["Daniel Dailey"]
   spec.email = ["daniel@danieldailey.com"]
 
@@ -34,7 +34,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "standard", "~> 1.31"
   spec.add_development_dependency "rubocop", "~> 1.57"
   spec.add_development_dependency "rubocop-rails", "~> 2.23"
-  spec.add_development_dependency "pg", "~> 1.5"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
